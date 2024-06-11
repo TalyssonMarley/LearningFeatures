@@ -1,6 +1,7 @@
 const slider = document.querySelectorAll('.sliderImg');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+
 let currentSlide = 0;
 
 function hideSlider() {
@@ -11,10 +12,34 @@ function showSlider() {
     slider[currentSlide].classList.add('on');
 }
 
-function nextBtn() {
+function passSlide() {
+    hideSlider();
 
+    if(currentSlide === slider.length -1) {
+        currentSlide = 0;
+    } else {
+        currentSlide ++;
+    }
+    showSlider();
 }
 
-nextBtn.addEventListener('click', () => console.log('proximo'));
+function backSlide() {
+    hideSlider();
 
-prevBtn.addEventListener('click', () => console.log('anterior'));
+    if(currentSlide === 0) {
+        currentSlide = 2;
+    } else {
+        currentSlide --;
+    }
+    showSlider();
+}
+
+nextBtn.addEventListener('click', (e) => {
+    e.preventDefault;
+    passSlide();
+});
+
+prevBtn.addEventListener('click', (e) => {
+    e.preventDefault;
+    backSlide();
+});
