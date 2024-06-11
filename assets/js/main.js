@@ -27,7 +27,7 @@ function backSlide() {
     hideSlider();
 
     if(currentSlide === 0) {
-        currentSlide = 2;
+        currentSlide = slider.length -1;
     } else {
         currentSlide --;
     }
